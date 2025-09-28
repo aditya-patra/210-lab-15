@@ -12,14 +12,15 @@ Read this data into a temporary Movie object. Then append that object to your co
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <vector>
 using namespace std;
-class Color {
+class Movie {
     private:
         string title;
         string writer;
         int year;
     public:
-        Color(string Title, string Writer, int Year) {
+        Movie(string Title, string Writer, int Year) {
             title = Title;
             writer = Writer;
             year = Year;
@@ -52,12 +53,17 @@ int main() {
     string tempTitle;
     string tempWriter;
     int tempYear;
+    vector<Movie> movies;
     while (getline(file, line)) {
         int firstComma = line.find(',');
         int secondComma = line.find(',', firstComma+1);
         tempTitle = line.substr(0, firstComma);
-        tempWriter = line.substr(firstComma + 1, secondComma);
-        tempYear = stoi(line.substr(secondComma+1));
-
+        tempYear = stoi(line.substr(firstComma + 1, secondComma-firstComma-2));
+        tempWriter = line.substr(secondComma+1);   
+        Movie temp = Movie(tempTitle, tempWriter, tempYear);
+        movies.push_back(temp);
+    }
+    for(int i= 0; i < 4; i++) {
+        movies[i].print();
     }
 }
