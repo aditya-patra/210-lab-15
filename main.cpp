@@ -44,7 +44,7 @@ class Movie {
             year = val;
         }
         void print() {
-            cout << "Movie Title: " << title << "\n    Writer: " << writer << "\n    Year: " << year << endl;
+            cout << "Movie Title: " << title << "\n    Year: " << year << "\n    Writer: " << writer << endl;
         }
 };
 int main() {
@@ -54,16 +54,19 @@ int main() {
     string tempWriter;
     int tempYear;
     vector<Movie> movies;
-    while (getline(file, line)) {
-        int firstComma = line.find(',');
-        int secondComma = line.find(',', firstComma+1);
-        tempTitle = line.substr(0, firstComma);
-        tempYear = stoi(line.substr(firstComma + 1, secondComma-firstComma-2));
-        tempWriter = line.substr(secondComma+1);   
-        Movie temp = Movie(tempTitle, tempWriter, tempYear);
-        movies.push_back(temp);
-    }
-    for(int i= 0; i < 4; i++) {
-        movies[i].print();
+    if(file.good()) {
+        for (int i = 0; i < 4; i++) {
+            getline(file, line);
+            tempTitle = line;
+            getline(file, line);
+            tempYear = stoi(line);
+            getline(file, line);
+            tempWriter = line;
+            Movie temp = Movie(tempTitle, tempWriter, tempYear);
+            movies.push_back(temp);
+        }
+        for(int i= 0; i < 4; i++) {
+            movies[i].print();
+        }
     }
 }
