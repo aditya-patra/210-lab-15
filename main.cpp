@@ -47,4 +47,17 @@ class Color {
         }
 };
 int main() {
+    ifstream file("file.txt");
+    string line;
+    string tempTitle;
+    string tempWriter;
+    int tempYear;
+    while (getline(file, line)) {
+        int firstComma = line.find(',');
+        int secondComma = line.find(',', firstComma+1);
+        tempTitle = line.substr(0, firstComma);
+        tempWriter = line.substr(firstComma + 1, secondComma);
+        tempYear = stoi(line.substr(secondComma+1));
+
+    }
 }
