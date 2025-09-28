@@ -1,0 +1,10 @@
+The Matrix,1999,Lana Wachowski
+Inception,2010,Christopher Nolan
+The Godfather,1972,Mario Puzo
+Pulp Fiction,1994,Quentin Tarantino
+Spirited Away,2001,Hayao Miyazaki
+The Shawshank Redemption,1994,Frank Darabont
+Jurassic Park,1993,Michael Crichton
+Back to the Future,1985,Robert Zemeckis
+The Dark Knight,2008,Jonathan Nolan
+Forrest Gump,1994,Eric Roth
